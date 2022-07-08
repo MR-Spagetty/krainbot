@@ -2,8 +2,8 @@
 
 #define POT 1
 
-#define ENCODER_TOP 2
-#define ENCODER_BOTTOM 1
+#define ENCODER_TOP 1
+#define ENCODER_BOTTOM 2
 /** @file opcontrol.c
  * @brief File for operator control code
  *
@@ -52,6 +52,7 @@ void operatorControl() {
     Encoder enc = encoderInit(ENCODER_TOP, ENCODER_BOTTOM, false);
     while (true){
         enc_value = encoderGet(enc);
+        pot_value = analogRead(POT);
         printf("Encoder value: %d\n", enc_value);
         printf("Pot value: %d\n", pot_value);
     }
